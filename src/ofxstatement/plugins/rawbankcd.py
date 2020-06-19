@@ -62,6 +62,9 @@ class RawbankCdParser(CsvStatementParser):
             self.statement.lines[idx].memo = self.statement.lines[idx].memo + line[2]
             return None
 
+        if line[0] == "Total":
+            return None
+
         date = line[0]
         date_value = line[1]
         description = line[2]
