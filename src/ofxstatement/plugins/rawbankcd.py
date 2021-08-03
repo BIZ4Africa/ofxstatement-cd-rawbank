@@ -49,6 +49,7 @@ class RawbankCdParser(CsvStatementParser):
             amount = -1*(D(debit))
         elif credit:
             amount = D(credit)
+        print("hello")
         return amount
 
 
@@ -72,7 +73,7 @@ class RawbankCdParser(CsvStatementParser):
         line[3] = str(amount)
 
         if not self.statement.start_balance:
-            self.statement.start_balance = D(line[5].replace(',', '')) + amount
+            self.statement.start_balance = D(line[5].replace(',', '')) + amount if amount > 0 else D(line[5].replace(',', '')) - amount
 
         stmtline = super(RawbankCdParser, self).parse_record(line)
         stmtline.id = generate_unique_transaction_id(stmtline, self.unique_id_set)
