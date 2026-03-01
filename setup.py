@@ -39,8 +39,12 @@ setup(name='ofxstatement-cd-rawbank',
       package_dir={'': 'src'},
       namespace_packages=["ofxstatement", "ofxstatement.plugins"],
       entry_points={
-          'ofxstatement':
-          ['rawbankcd = ofxstatement.plugins.rawbankcd:RawbankCdPlugin']
+          'ofxstatement': [
+              'rawbankcd = ofxstatement.plugins.rawbankcd:RawbankCdPlugin',
+          ],
+          'console_scripts': [
+              'ofxstatement-rawbank-gui = ofxstatement.plugins.rawbankcd_gui:main',
+          ],
           },
       install_requires=['ofxstatement'],
       extras_require={'test': ["freezegun", "pytest"]},
