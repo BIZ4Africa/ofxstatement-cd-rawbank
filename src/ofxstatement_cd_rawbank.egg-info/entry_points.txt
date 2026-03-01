@@ -1,2 +1,0 @@
-[ofxstatement]
-rawbankcd = ofxstatement.plugins.rawbankcd:RawbankCdPlugin
